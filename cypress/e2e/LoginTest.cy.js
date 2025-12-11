@@ -1,16 +1,25 @@
 import LoginPage from "./pages/login"
+import userData from "../fixtures/userData.json"
+import ServicePage from "./pages/UserService"
 
 const acessLogin = new LoginPage()
+const featureServices = new ServicePage()
 
-describe('Cypress Hero', () => {
+describe('Cypress Heroes', () => {
 
-  it('Login', () => {
+  it('Login - Success', () => {
     
-   acessLogin.loginWithUser('test@test.com', 'test123')
+   acessLogin.loginWithUser(userData.userSucess.UserEmail, userData.userSucess.password)
+   featureServices.FeatureLike()
+   featureServices.FeatureMoney()
     
   })
 
-  it.skip('and other test', () => {
+  it('Login - Fail', () => {
+
+    
+    acessLogin.loginWithUser(userData.userFail.UserEmail, userData.userFail.password)
+    acessLogin.AlertFail()
 
     
   })

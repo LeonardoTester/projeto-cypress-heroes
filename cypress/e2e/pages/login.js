@@ -3,10 +3,11 @@ class LoginPage {
     selectorsList() {
      const selectors = {
        
-        EmailField: "[name='email']",
-        passwordField: "[name='password']",
+        EmailField: "[data-cy='email']",
+        passwordField: "[data-cy='password']",
         ButtoLogin: ".undefined",
-        SignButtom: ".text-white"
+        SignButtom: ".text-white",
+        AlertError: ".text-red-500"
     
         }
                
@@ -14,16 +15,23 @@ class LoginPage {
 
         }
 
-        loginWithUser(EmailField, passwordField) {
+        loginWithUser(UserEmail, password) {
 
             cy.visit('http://localhost:3000/')
             cy.get(this.selectorsList().ButtoLogin).click()
-            cy.get(this.selectorsList().EmailField).type(EmailField)
-            cy.get(this.selectorsList().passwordField).type(passwordField)
+            cy.get(this.selectorsList().EmailField).type(UserEmail)
+            cy.get(this.selectorsList().passwordField).type(password)
             cy.get(this.selectorsList().SignButtom).click()
 
         }
 
+        AlertFail() {
+
+        cy.get(this.selectorsList().AlertError)
+
+
+        }
+     
     }
 
     export default LoginPage

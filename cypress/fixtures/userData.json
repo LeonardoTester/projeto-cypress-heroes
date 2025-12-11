@@ -1,0 +1,12 @@
+   {
+    "userSucess": {
+        "UserEmail": "test@test.com",
+        "password": "test123"
+    },
+
+    "userFail": {
+        "UserEmail": "tesdsdt@test.com",
+        "password": "tesdsdsdt123"
+    }
+ }
+     
